@@ -6,8 +6,10 @@ def board( lis ) :
         else :
             print( lis[i], end = " | " )
 def Input( lis, i, value ) :
+    #function to input index box
     lis[i] = value
 def getindexes( lis, value ) :
+    #function to get indexes of o or x
     index = []
     indexpos = 0
     while True :
@@ -19,11 +21,13 @@ def getindexes( lis, value ) :
             break
     return index
 def abnormal_end( lis ) :
+    #function to check whether game ends abnormally. normal end is when someone wins the game.
     if lis.count( 'o' ) + lis.count( 'x' ) == 9 :
         return 1
     else :
         return 0
 def check1( lis,win ) :
+    #function to check whether player 1 wins
     for i in range( len( win ) ) :
         count1 = 0
         for j in range( len( win[i] ) ) :
@@ -32,6 +36,7 @@ def check1( lis,win ) :
         if count1 == 3 :
             return 1
 def check2( lis, win ) :
+    #function to check whether player 2 wins
     for i in range( len( win ) ) :
         count2 = 0
         for j in range( len( win[i] ) ) :
@@ -42,10 +47,14 @@ def check2( lis, win ) :
 lis = [ '', '', '', '', '', '', '', '', '' ]           #empty board for game
 board( lis )
 print( "\n" )
+#list with all winning positions with indexes
 win = [ [ 0, 3, 6 ], [ 1, 4, 7 ], [ 2, 5, 8 ], [ 0, 1, 2 ], [ 3, 4, 5 ], [ 6, 7, 8 ], [ 0, 4, 8 ], [ 2, 4, 6 ] ]
+#dictionary to assign value o and x to players respectively
 dic = { 'play1' : 'o', 'play2' : 'x' }
+#give information of players
 player1 = str( input( "enter name of player 1 : " ) )
 player2 = str( input( "enter name of player 2 : " ) )
+#actual gaming program
 while True :
         while True :
             try :
